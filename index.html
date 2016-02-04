@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="restaurantApp">
+<head>
+	<title>JS17: Restaurant Objects</title>
+	<link rel="stylesheet" type="text/css" href="normalize.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script>
+	<script type="text/javascript" src="javascript.js"></script>
+
+
+</head>
+<body ng-controller="server">
+
+<h1> Welcome to {{restaurant.name}}!</h1>
+<h3> Set Dietary Preferences:</h3>
+<ul>
+	<li style="background-color: #f1c40f;">Citrus Free: <input type="checkbox" ng-model="customer.dietaryPreferences.citrusFree" ng-click="checkItCitrus()"></li>
+	<li style="background-color: #7f8c8d;">Gluten Free: <input type="checkbox" ng-model="customer.dietaryPreferences.glutenFree" ng-click="checkItGluten()"></li>
+	<li style="background-color: #2ecc71;">Vegan: <input type="checkbox" ng-model="customer.dietaryPreferences.vegan" ng-click="checkItVegan()"></li>
+</ul>
+<h3>Menu</h3>
+
+<div ng-repeat="plate in plates">
+	<div>
+	<p>
+		<div ng-show="plate.citrusSwitch" class="dietary-indicator" style="background : #f1c40f;"></div>
+		<div ng-show="plate.glutenFreeSwitch" class="dietary-indicator" style="background : #7f8c8d;"></div>
+		<div ng-show="plate.veganSwitch" class="dietary-indicator" style="background : #2ecc71;"></div>
+			{{plate.stringify()}} Price: {{plate.price}} <button ng-click="addToOrder(plate)">Add to Order</button>
+	</p>
+		<ul ng-repeat="foodItem in plate.ingredients">
+			<li>{{foodItem.stringify()}}</li>
+		</ul>
+	</div>	
+</div>
+
+<h3>Order</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
