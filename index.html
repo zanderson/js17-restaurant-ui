@@ -35,7 +35,10 @@
 </div>
 
 <h3>Order</h3>
-
+<div ng-repeat="plate in newOrder.plates">
+	<span>{{plate.name}}</span> ...... <span>${{plate.price}}</span>
+</div>
+<strong><span>TOTAL</span> ...... <span>${{orderTotal}}</span></strong>
 
 
 

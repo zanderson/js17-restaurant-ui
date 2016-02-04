@@ -4,7 +4,7 @@
 
 var FoodItem = function(name, calories, vegan, glutenFree, citrusFree ){
 	this.name = name,
-	this.calories = calories,
+	this.calories = calories
 	this.vegan = vegan,
 	this.glutenFree = glutenFree,
 	this.citrusFree = citrusFree
@@ -13,8 +13,7 @@ var FoodItem = function(name, calories, vegan, glutenFree, citrusFree ){
 var Gulyas = new FoodItem (
 	'Gulyas Soup',
 	500,
-	true,
-	true,
+	true,	true,
 	true
 	);
 
@@ -220,6 +219,8 @@ angular.module('restaurantApp', []);
 			$scope.restaurant = zoesRestaurant
 			$scope.customer = valentin
 			$scope.plates = [euroPlate, romanianPlate]
+			$scope.newOrder = new Order([])
+			$scope.orderTotal = 0
 
 			$scope.checkItCitrus = function() {
 				if ($scope.customer.dietaryPreferences.citrusFree) {
@@ -281,7 +282,8 @@ angular.module('restaurantApp', []);
 			}
 
 			$scope.addToOrder = function(plate){
-				
+				$scope.newOrder.plates.push(plate)
+				$scope.orderTotal += plate.price
 			}
 
 		}])
